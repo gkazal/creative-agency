@@ -1,0 +1,18 @@
+.order-form input {
+    width: 50%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 4px;
+}
+.order-form textarea{
+    width: 50%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 4px;
+}
+.order-container{
+    background-color: rgb(228, 233, 236);
+    height: 600px;
+}
