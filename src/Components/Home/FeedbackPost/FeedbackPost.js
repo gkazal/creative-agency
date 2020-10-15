@@ -21,22 +21,24 @@ const useStyles = makeStyles((theme) => ({
 const FeedbackPost = ({ feedback }) => {
     const classes = useStyles();
 
+    const {displayName, company, photoURL, description} = feedback
+
 
     return (
         <div class="card " style={{ width: '18rem', marginBottom:"100px" }}>
             <div className="row card-body">
                 <div className="mr-3 ml-2">
-                    <Avatar alt="Remy Sharp" src={feedback.img} className={classes.large} /> 
+                    <Avatar alt="Remy Sharp" src={photoURL} className={classes.large} /> 
                 </div>
 
                 <div >
-                    <h5 class="card-title">{feedback.name}</h5>
-                    <h6 className="card-title">{feedback.position}</h6>
+                    <h5 class="card-title">{displayName}</h5>
+                    <h6 className="card-title">{company}</h6>
                 </div>
             </div>
 
             <div className="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">{description}</p>
 
             </div>
         </div>
