@@ -9,8 +9,8 @@ import './Client.css'
 
 const Client = () => {
     return (
-        <div className="client d-flex justify-content-between  ">
-            <div className=" mx-auto m-5 p-5 ">
+        <div className="client  ">
+            <div className="d-flex justify-content-around   mt-5 pt-5 mb-5 pb-5 ">
                 <img style={{ height: '50px', border: '0' }} src={slack} className="img-thumbnail" alt="" />
                 <img style={{ height: '50px', border: '0' }} src={google} className="img-thumbnail" alt="" />
 

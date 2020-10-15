@@ -10,7 +10,6 @@ const CustomerReviewBody = () => {
     console.log(loggedInUser)
     const {displayName,photoURL} = loggedInUser
 
-
     const [description, setDescription] = useState('')
 
     const [company, setCompany] = useState('')
@@ -20,7 +19,6 @@ const CustomerReviewBody = () => {
 
     // const history = useHistory(displayName)
 
-
     const handleReview = (displayName) => {
         // history.push(`/review/${email}`)
 
@@ -28,8 +26,6 @@ const CustomerReviewBody = () => {
         newOrder.description = description
         newOrder.company = company
         newOrder.photoURL = photoURL
-
-
 
         fetch('http://localhost:4000/addReview', {
             method: 'POST',
@@ -42,9 +38,6 @@ const CustomerReviewBody = () => {
             })
     }
 
-
-
-
     return (
 
         <section>
@@ -55,7 +48,6 @@ const CustomerReviewBody = () => {
                 <div className="col-md-10 col-sm-6 order-form" style={{ height: "100vh" }}>
 
                     <h2 className="mb-3 pb-3">Review</h2>
-
 
                     <Form className="form" >
 

@@ -33,8 +33,8 @@ const ServiceDetail = ({ service }) => {
 
         <ButtonBase onClick={()=> serviceHandle(name)} className={classes.imageStyle} >
             <div className="hover mr-3">
-                <img style={{ width: '80px' }} src={service.img} class="card-img-top" alt="..." />
-                <h5 class="card-title mt-2 mb-2">{service.name}</h5>
+                <img style={{ width: '80px' }} src={`http://localhost:4000/${service.img}`} class="card-img-top" alt="..." />
+                <h5 class="card-title mt-2 mb-2">{service.title}</h5>
                 <p class="card-text text-secondary">{service.description}</p>
             </div>
 

@@ -13,6 +13,9 @@ import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import ServiceList from './Components/ServiceList/ServiceList/ServiceList';
 import CustomerReview from './Components/CustomerReview/CustomerReview/CustomerReview';
 import ServiceListBody from './Components/ServiceList/ServiceList/ServiceListBody/ServiceListBody';
+import ShowServiceList from './Components/ShowAdminServiceList/ShowServiceList/ShowServiceList';
+import AddService from './Components/ShowAdminServiceList/AddService/AddService';
+import MakeAdmin from './Components/ShowAdminServiceList/MakeAdmin/MakeAdmin';
 
 export const UserContext = createContext()
 
@@ -50,6 +53,20 @@ function App() {
           <Route path="/review">
             <CustomerReview></CustomerReview>
           </Route>
+
+          <Route path="/showServiceList">
+            <ShowServiceList></ShowServiceList>
+          </Route>
+
+          <Route path="/addService">
+            <AddService></AddService>
+          </Route>
+
+          <Route path="/addAdmin">
+            <MakeAdmin></MakeAdmin>
+          </Route>
+
+          
 
 
 

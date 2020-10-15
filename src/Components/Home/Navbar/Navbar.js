@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import img from '../../../images/logos/logo.png'
 
@@ -30,7 +31,9 @@ const Navbar = () => {
                         <a className="nav-link mr-3" href="/home">Contact Us</a>
                     </li>
                     <li>
-                        <button className="btn btn-dark">Login</button>
+                        <Link to="/login">
+                            <Button variant="dark">Login</Button>
+                        </Link>
                     </li>
 
                   

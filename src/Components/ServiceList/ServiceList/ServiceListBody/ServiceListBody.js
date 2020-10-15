@@ -33,12 +33,7 @@ const ServiceListBody = () => {
 
                 </div>
 
-
             </div>
-
-
-
-
 
         </div>
     );

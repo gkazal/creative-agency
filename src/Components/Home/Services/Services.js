@@ -1,30 +1,16 @@
-import React from 'react';
-import mobile from '../../../images/icons/web and mobile.png'
-import graphic from '../../../images/icons/graphics design.png'
-import web from '../../../images/icons/web development.png'
+import React, { useEffect, useState } from 'react';
+
 import ServiceDetail from '../ServiceDetail/ServiceDetail';
 
 
-const servicesData = [
-    {
-        name: 'Web and Mobile design',
-        img: mobile,
-        description: 'we craft stunning and amazin web ul using a weel draft to fit your project'
-    },
-    {
-        name: 'Grapich Design',
-        img: graphic,
-        description: 'we craft stunning and amazin web ul using a weel draft to fit your project'
-    },
-    {
-        name: 'Web Development',
-        img: web,
-        description: 'we craft stunning and amazin web ul using a weel draft to fit your project'
-    },
-]
-
 const Services = () => {
+    const [data, setData] = useState([])
 
+    useEffect(() => {
+        fetch('http://localhost:4000/service')
+            .then(res => res.json())
+            .then(data => setData(data))
+    }, [])
 
     return (
         <section>
@@ -35,7 +21,7 @@ const Services = () => {
             <div className="d-flex justify-content-center  service-container ">
                 <div className="">
                     {
-                        servicesData.map(service => <ServiceDetail service={service}></ServiceDetail>)
+                        data.map(service => <ServiceDetail service={service}></ServiceDetail>)
                     }
 
                 </div>
