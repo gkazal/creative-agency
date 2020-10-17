@@ -50,7 +50,7 @@ const OrderForm = () => {
         newOrder.image = image
 
 
-        fetch('http://localhost:4000/addBookingService', {
+        fetch('https://fathomless-bastion-54324.herokuapp.com/addBookingService', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newOrder)

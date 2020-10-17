@@ -33,7 +33,7 @@ const AddService = () => {
         formData.append('description', info.description)
 
 
-        fetch('http://localhost:4000/addService', {
+        fetch('https://fathomless-bastion-54324.herokuapp.com/addService', {
             method: 'POST',
             body: formData
         })
@@ -50,7 +50,7 @@ const AddService = () => {
     const [isAdmin, setIsAdmin] = useState(false)
 
     useEffect(() => {
-        fetch('http://localhost:4000/isAdmin', {
+        fetch('https://fathomless-bastion-54324.herokuapp.com/isAdmin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: loggedInUser.email })

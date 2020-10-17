@@ -18,7 +18,7 @@ const Work = () => {
 
 
 
-            <div style={{ width: '400px' }} id="carouselExampleFade" class="carousel slide carousel-fade mt-5 pt-5 mb-5 pb-5 " data-ride="carousel">
+            <div style={{ width: '400px',marginLeft: '35%' }} id="carouselExampleFade" class="carousel slide carousel-fade mt-5 pt-5 mb-5 pb-5 " data-ride="carousel">
                 <div class="carousel-inner d-flex justify-content-center "  >
                     <div className=" ">
                         <div class="carousel-item active ">

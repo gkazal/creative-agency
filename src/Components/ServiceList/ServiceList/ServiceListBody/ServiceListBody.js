@@ -11,7 +11,7 @@ const ServiceListBody = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:4000/bookingService?email=' + loggedInUser.email)
+        fetch('https://fathomless-bastion-54324.herokuapp.com/bookingService?email=' + loggedInUser.email)
             .then(res => res.json())
             .then(data => setBookings(data))
     }, [])

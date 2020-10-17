@@ -14,7 +14,7 @@ const ShowServiceList = () => {
     const { loggedInUser } = useContext(UserContext);
 
     useEffect(() => {
-        fetch('http://localhost:4000/showServiceList?email=' + loggedInUser.email)
+        fetch('https://fathomless-bastion-54324.herokuapp.com/showServiceList?email=' + loggedInUser.email)
             .then(res => res.json())
             .then(data => setBookings(data))
     }, [])
@@ -24,7 +24,7 @@ const ShowServiceList = () => {
     const [isAdmin, setIsAdmin] = useState(false)
 
     useEffect(() => {
-        fetch('http://localhost:4000/isAdmin', {
+        fetch('https://fathomless-bastion-54324.herokuapp.com/isAdmin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: loggedInUser.email })

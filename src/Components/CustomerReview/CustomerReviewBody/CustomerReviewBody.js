@@ -27,7 +27,7 @@ const CustomerReviewBody = () => {
         newOrder.company = company
         newOrder.photoURL = photoURL
 
-        fetch('http://localhost:4000/addReview', {
+        fetch('https://fathomless-bastion-54324.herokuapp.com/addReview', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newOrder)

@@ -38,7 +38,7 @@ const ServiceDetail = ({ service }) => {
                 {
                     service.image ? <img style={{ width: '80px' }} src={`data:image/png;base64,${service.image.img}`} />
                     :
-                    <img style={{ width: '80px' }} src={`http://localhost:4000/${service.img}`} class="card-img-top" alt="" />
+                    <img style={{ width: '80px' }} src={`https://fathomless-bastion-54324.herokuapp.com/${service.img}`} class="card-img-top" alt="" />
                 }
                 <h5 class="card-title mt-2 mb-2">{service.title}</h5>
                 <p class="card-text text-secondary">{service.description}</p>

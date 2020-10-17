@@ -11,7 +11,7 @@ const Services = () => {
     setImage(data)
 
     useEffect(() => {
-        fetch('http://localhost:4000/service')
+        fetch('https://fathomless-bastion-54324.herokuapp.com/service')
             .then(res => res.json())
             .then(data => setData(data))
     }, [])
