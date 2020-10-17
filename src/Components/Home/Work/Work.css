@@ -1,14 +1,17 @@
-
+/* 
 .carousel-container{
     background-color: black;
     max-width: 100% !important;
-
 
 }
 .carousel-slide img {
     margin-left: 30% !important;
     max-width: 400px !important;
 
+} */
+
+.container img{
+    width: 500px;
 }
 
 

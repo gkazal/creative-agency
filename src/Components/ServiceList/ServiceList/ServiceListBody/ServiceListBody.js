@@ -25,7 +25,7 @@ const ServiceListBody = () => {
                     <Sidebar></Sidebar>
                 </div>
                 <div className="col-md-10 order-container">
-                    <h2>you have {bookings.length}</h2>
+                    <h2>you have {bookings.length} services</h2>
 
                     {
                         bookings.map(booking => <ServiceListInfo key={booking._id} booking={booking}></ServiceListInfo>)

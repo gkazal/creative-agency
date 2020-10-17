@@ -25,7 +25,7 @@ const FeedbackPost = ({ feedback }) => {
 
 
     return (
-        <div class="card " style={{ width: '18rem', marginBottom:"100px" }}>
+        <div class="card mr-2 mb-2 pb-2" style={{ width: '18rem',}}>
             <div className="row card-body">
                 <div className="mr-3 ml-2">
                     <Avatar alt="Remy Sharp" src={photoURL} className={classes.large} /> 

@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { UserContext } from '../../../App';
 
 import ServiceDetail from '../ServiceDetail/ServiceDetail';
 
 
 const Services = () => {
     const [data, setData] = useState([])
+
+    const { setImage } = useContext(UserContext)
+    setImage(data)
 
     useEffect(() => {
         fetch('http://localhost:4000/service')
@@ -13,20 +17,18 @@ const Services = () => {
     }, [])
 
     return (
-        <section>
-            <div className="text-center mt-5 ">
+        <div>
+            <div className="text-center mt-5 pt-5 ">
                 <h4>Provide awesome <span style={{ color: 'green' }}>services</span></h4>
 
             </div>
-            <div className="d-flex justify-content-center  service-container ">
-                <div className="">
-                    {
-                        data.map(service => <ServiceDetail service={service}></ServiceDetail>)
-                    }
+            <div className="row d-flex justify-content-center  service-container ">
+                {
+                    data.map(service => <ServiceDetail service={service} key={service._id}></ServiceDetail>)
+                }
 
-                </div>
             </div>
-        </section>
+        </div>
     );
 };
 

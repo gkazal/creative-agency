@@ -46,7 +46,7 @@ const Login = () => {
     const classes = useStyles();
 
 
-    const { setLoggedInUser } = useContext(UserContext)
+    const {loggedInUser, setLoggedInUser } = useContext(UserContext)
 
     const history = useHistory()
     const location = useLocation()
@@ -63,6 +63,7 @@ const Login = () => {
             const signInUser = { displayName, email, photoURL }
             
             setLoggedInUser(signInUser)
+            storeAuthToken();
             history.replace(from)
             // console.log(signInUser)
             
@@ -76,8 +77,17 @@ const Login = () => {
             var credential = error.credential;
             // ...
         });
-
     }
+    const storeAuthToken = () => {
+        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
+          .then(function (idToken) {
+            sessionStorage.setItem('token', idToken);
+            history.replace(from);
+          }).catch(function (error) {
+            // Handle error
+          });
+      }
+    
 
 
 

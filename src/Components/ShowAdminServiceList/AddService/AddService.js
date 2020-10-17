@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import { UserContext } from '../../../App';
 import ServiceHeader from '../../Shared/ServiceHeader/ServiceHeader';
@@ -11,7 +11,7 @@ const AddService = () => {
 
     const { loggedInUser } = useContext(UserContext)
 
-    const [info, setInfo] = useState({})    
+    const [info, setInfo] = useState({})
 
     const handleFileChange = (e) => {
         const newFile = e.target.files[0]
@@ -19,14 +19,14 @@ const AddService = () => {
     }
 
     const handleBlur = (e) => {
-        const newInfo = {...info}
+        const newInfo = { ...info }
         newInfo[e.target.name] = e.target.value
         setInfo(newInfo)
 
     }
 
     const handleService = () => {
-      
+
         const formData = new FormData()
         formData.append('file', file)
         formData.append('title', info.title)
@@ -46,8 +46,25 @@ const AddService = () => {
             })
     }
 
+
+    const [isAdmin, setIsAdmin] = useState(false)
+
+    useEffect(() => {
+        fetch('http://localhost:4000/isAdmin', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: loggedInUser.email })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                setIsAdmin(data)
+            })
+
+    }, [])
+
     return (
-        <div>
+        <div> {isAdmin && <div>
             <ServiceHeader></ServiceHeader>
 
             <div className="row">
@@ -55,22 +72,22 @@ const AddService = () => {
                     <AdminSidebar></AdminSidebar>
                 </div>
 
-                <Col className="order-container col-md-10 col-sm-12 ">
+                <div className="order-container col-md-10 col-sm-12 ">
 
-                    <div className="row">
-                        <form className="col-md-5">
+                    <div className="row ml-3 pl-3 mr-5 pr-5 mt-5 pt-5 mb-5 pb-5" style={{ backgroundColor: 'white', height: '400px', borderRadius: '10px' }}>
+                        <form className="col-md-5 ">
                             <div class="form-group ">
                                 <label for="validationTooltip01">Service Title</label>
-                                <input type="text" name="title" placeholder="enter title" class="form-control" onBlur={handleBlur}/>
+                                <input type="text" name="title" placeholder="enter title" class="form-control" onBlur={handleBlur} />
                             </div>
 
                             <div>
                                 <label for="validationTooltip01">Description</label>
-                                <textarea name="description" placeholder="enter description" onBlur={handleBlur}></textarea>
+                                <textarea style={{ height: '100px' }} name="description" placeholder="enter description" onBlur={handleBlur}></textarea>
                             </div>
 
                             <div>
-                                <button onClick={() => handleService()} style={{ width: '150px' }} className="btn btn-dark">Send</button>
+                                <button onClick={() => handleService()} style={{ width: '150px' }} className="btn btn-success">Send</button>
                             </div>
 
                         </form>
@@ -82,9 +99,10 @@ const AddService = () => {
                         </form>
 
                     </div>
-                </Col>
+                </div>
 
             </div>
+        </div>}
 
         </div>
     );

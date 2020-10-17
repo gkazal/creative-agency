@@ -1,22 +1,44 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Col, Form, Row } from 'react-bootstrap';
+import { Button, Col, Form, Row } from 'react-bootstrap';
+import { UserContext } from '../../../App';
+import { Link } from 'react-router-dom';
 
 import ServiceHeader from '../../Shared/ServiceHeader/ServiceHeader';
 import AdminSidebar from '../../Shared/Sidebar/AdminSidebar';
 import ShowServiceListInfo from './ShowServiceListInfo/ShowServiceListInfo';
+import OrderPage from '../../Order/OrderPage/OrderPage';
+import ServiceListBody from '../../ServiceList/ServiceList/ServiceListBody/ServiceListBody';
 
 const ShowServiceList = () => {
     const [bookings, setBookings] = useState([])
-
+    const { loggedInUser } = useContext(UserContext);
 
     useEffect(() => {
-        fetch('http://localhost:4000/showServiceList')
+        fetch('http://localhost:4000/showServiceList?email=' + loggedInUser.email)
             .then(res => res.json())
             .then(data => setBookings(data))
     }, [])
 
+
+
+    const [isAdmin, setIsAdmin] = useState(false)
+
+    useEffect(() => {
+        fetch('http://localhost:4000/isAdmin', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: loggedInUser.email })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                setIsAdmin(data)
+            })
+
+    }, [])
+
     return (
-        <div>
+        <div> { isAdmin && <div>
             <ServiceHeader></ServiceHeader>
 
             <div className="row">
@@ -59,6 +81,12 @@ const ShowServiceList = () => {
                 </Col>
 
             </div>
+        </div>}
+        {
+            ! isAdmin && <div>
+                            <ServiceListBody></ServiceListBody>
+                        </div>
+        }
 
         </div>
     );

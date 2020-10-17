@@ -12,11 +12,11 @@ const Feedback = () => {
     }, [])
     return (
         <section>
-            <div className="container mt-5 pt-5">
-                <div className="container">
+            <div>
+                <div className="text-center mt-3 pt-3 mb-2 pb-2">
                     <h4 style={{ textAlign: 'center', marginTop: '50px' }}>Clients <span style={{ color: 'green' }}>Feedback</span></h4>
                 </div>
-                <div className="card-deck mt-5">
+                <div className="row d-flex justify-content-center  service-container ">
                     {
                         data.map(feedback => <FeedbackPost feedback={feedback} key={feedback.id}></FeedbackPost>)
 

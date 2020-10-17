@@ -7,10 +7,8 @@ import {
 } from "react-router-dom";
 import Home from './Components/Home/Home/Home'
 import Login from './Components/Login/Login/Login';
-import OrderForm from './Components/Order/OrderForm/OrderForm';
 import OrderPage from './Components/Order/OrderPage/OrderPage';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
-import ServiceList from './Components/ServiceList/ServiceList/ServiceList';
 import CustomerReview from './Components/CustomerReview/CustomerReview/CustomerReview';
 import ServiceListBody from './Components/ServiceList/ServiceList/ServiceListBody/ServiceListBody';
 import ShowServiceList from './Components/ShowAdminServiceList/ShowServiceList/ShowServiceList';
@@ -41,30 +39,30 @@ function App() {
             <Login></Login>
           </Route>
 
-          <PrivateRoute path="/order/:name">
+          <PrivateRoute path="/order/:title">
             <OrderPage></OrderPage>
           </ PrivateRoute>
-
 
           <PrivateRoute path="/service">
             <ServiceListBody></ServiceListBody>
           </PrivateRoute>
 
-          <Route path="/review">
+          <PrivateRoute path="/review">
             <CustomerReview></CustomerReview>
-          </Route>
+          </PrivateRoute>
 
-          <Route path="/showServiceList">
+
+          <PrivateRoute path="/showServiceList">
             <ShowServiceList></ShowServiceList>
-          </Route>
+          </PrivateRoute>
 
-          <Route path="/addService">
+          <PrivateRoute path="/addService">
             <AddService></AddService>
-          </Route>
+          </PrivateRoute>
 
-          <Route path="/addAdmin">
+          <PrivateRoute path="/addAdmin">
             <MakeAdmin></MakeAdmin>
-          </Route>
+          </PrivateRoute>
 
           
 

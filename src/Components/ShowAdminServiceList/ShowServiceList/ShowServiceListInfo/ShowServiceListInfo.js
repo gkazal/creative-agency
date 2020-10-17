@@ -3,7 +3,7 @@ import { Button, Col, Form, Row } from 'react-bootstrap';
 
 const ShowServiceListInfo = ({ booking }) => {
 
-    const { displayName, enterDate, email, name, description } = booking
+    const { displayName, enterDate, email, title, description } = booking
     return (
         <Row>
 
@@ -20,7 +20,7 @@ const ShowServiceListInfo = ({ booking }) => {
                     <Form.Control type="text" value={enterDate} />
                 </Col>
                 <Col>
-                    <Form.Control type="text" value={name} />
+                    <Form.Control type="text" value={title} />
                 </Col>
                 <Col>
                     <Form.Control type="text" value={description} />

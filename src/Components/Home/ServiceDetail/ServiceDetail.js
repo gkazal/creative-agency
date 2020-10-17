@@ -17,23 +17,29 @@ const ServiceDetail = ({ service }) => {
     }));
     const classes = useStyles();
 
-    const {name,img} = service
+    const {title,image} = service
 
     const {setImage} = useContext(UserContext)
 
  
-    const history = useHistory(name)
-    const serviceHandle = (name) => { 
-        setImage(img)
-        history.push(`/order/${name}`)
+    const history = useHistory(title)
+    const serviceHandle = (title) => { 
+        setImage(image)
+
+       history.push(`/order/${title}`)
 
     }
 
+
     return (
 
-        <ButtonBase onClick={()=> serviceHandle(name)} className={classes.imageStyle} >
-            <div className="hover mr-3">
-                <img style={{ width: '80px' }} src={`http://localhost:4000/${service.img}`} class="card-img-top" alt="..." />
+        <ButtonBase onClick={()=> serviceHandle(title)} className={classes.imageStyle} >
+            <div className="hover mr-2 mb-5 pb-5 ">
+                {
+                    service.image ? <img style={{ width: '80px' }} src={`data:image/png;base64,${service.image.img}`} />
+                    :
+                    <img style={{ width: '80px' }} src={`http://localhost:4000/${service.img}`} class="card-img-top" alt="" />
+                }
                 <h5 class="card-title mt-2 mb-2">{service.title}</h5>
                 <p class="card-text text-secondary">{service.description}</p>
             </div>

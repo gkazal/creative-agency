@@ -10,7 +10,7 @@ import './Client.css'
 const Client = () => {
     return (
         <div className="client  ">
-            <div className="d-flex justify-content-around   mt-5 pt-5 mb-5 pb-5 ">
+            <div className="d-flex justify-content-around row col-md-12 col-sm-6  mt-5 pt-5 mb-5 pb-5 ">
                 <img style={{ height: '50px', border: '0' }} src={slack} className="img-thumbnail" alt="" />
                 <img style={{ height: '50px', border: '0' }} src={google} className="img-thumbnail" alt="" />
 

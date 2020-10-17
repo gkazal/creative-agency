@@ -19,10 +19,9 @@ const OrderForm = () => {
     const {loggedInUser} = useContext(UserContext)
     const {email} = loggedInUser
 
-    const { name } = useParams()
-    console.log(name)
+    const { title } = useParams()
 
-    const [serviceName] = useState({ name })
+    const [serviceName] = useState({ title })
 
     const [description, setDescription] = useState('')
 
@@ -40,7 +39,7 @@ const OrderForm = () => {
         setSelectedDate(newDates);
     };
 
-    const history = useHistory(name)
+    const history = useHistory(title)
 
 
     const handleOrder = (email) => {
@@ -66,10 +65,10 @@ const OrderForm = () => {
     return (
         <section>
             <div className="row order-container">
-                <div className="col-md-2 col-sm-6">
+                <div className="col-md-2 col-sm-2 col-xs-2 " style={{ height: "100%" }}>
                     <Sidebar></Sidebar>
                 </div>
-                <div className="col-md-10 col-sm-6 order-form" style={{ height: "100vh" }}>
+                <div className="col-md-10 col-sm-10 col-xs-10 order-form" style={{ height: "100%" }}>
 
                     <h2 className="mb-3 pb-3">Order here..</h2>
 
@@ -82,7 +81,7 @@ const OrderForm = () => {
                             <Form.Control type="text" value={loggedInUser.email} />
                         </Form.Group>
                         <Form.Group controlId="formBasicPassword">
-                            <Form.Control type="text" value={name} />
+                            <Form.Control type="text" value={title} />
                         </Form.Group>
 
                         <Form.Group  controlId="formBasicPassword">

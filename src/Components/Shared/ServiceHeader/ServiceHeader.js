@@ -3,7 +3,7 @@ import { UserContext } from '../../../App';
 import logo from '../../../images/logos/logo.png'
 
 const ServiceHeader = () => {
-    const { loggedInUser, setLoggedInUser } = useContext(UserContext)
+    const { loggedInUser} = useContext(UserContext)
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light">

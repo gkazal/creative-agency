@@ -1,14 +1,15 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { Link } from 'react-router-dom';
-import {faSignOutAlt, faCommentAlt, faHome, faTaxi, faShoppingCart} from '@fortawesome/free-solid-svg-icons';
+import { Link, useParams } from 'react-router-dom';
+import {faCommentAlt, faHome, faTaxi, faShoppingCart} from '@fortawesome/free-solid-svg-icons';
 
 
 import './Sidebar.css'
 
 const Sidebar = () => {
+    const { title } = useParams()
     return (
-        <div className="sidebar d-flex flex-column justify-content-between col-md-2 py-5 px-4" style={{ height: "100vh" }}>
+        <div className="sidebar  col-md-2 col-sm-2 py-5 px-4" style={{ height: '100%' }}>
             <ul className="list-unstyled">
                 
                 <li>
@@ -18,7 +19,7 @@ const Sidebar = () => {
                 </li>
                 {<div>
                     <li>
-                        <Link to="/order" className="text-dark">
+                        <Link to={`/order/${title}`} className="text-dark">
                             <FontAwesomeIcon icon={faShoppingCart} /> <span>Order</span>
                         </Link>
                     </li>
